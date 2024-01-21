@@ -1,7 +1,8 @@
 import streamlit as st
 import PyPDF2
 from io import BytesIO
-
+import img2pdf
+from PIL import Image
 
 def merge_pdfs(session_page):
     """
@@ -26,6 +27,16 @@ def merge_pdfs(session_page):
 
     session_page['merged_pdf'] = merged_pdf  # Add the merged PDF to the session state
     st.session_state['pdf_merger'] = session_page  # Update the session state
+
+def convert_images_to_pdf(session_page):
+
+    with st.spinner('Converting images to pdf...'):
+        image_list = session_page['image_list']
+        pdf_bytes = img2pdf.convert([image.read() for image in image_list])
+        pdf_bytes = BytesIO(pdf_bytes)
+    
+    session_page['output_pdf'] = pdf_bytes
+    st.session_state['image_to_pdf'] = session_page
 
 def reset(session_page, page):
     """

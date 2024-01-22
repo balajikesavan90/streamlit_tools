@@ -13,7 +13,7 @@ def render_image_to_pdf_widget(session_page):
 
     # File uploader for the PDF files
     session_page['image_list'] = st.file_uploader(
-        label = 'The files will be merged in the order you upload them',  # Label of the file uploader
+        label = 'The images will be merged in the order you upload them',  # Label of the file uploader
         type = ['png', 'jpg', 'jpeg'],  # Only accept images
         accept_multiple_files = True,  # Accept multiple files
         key = session_page['uploader_key'],  # Unique key for the file uploader
@@ -27,6 +27,7 @@ def render_image_to_pdf_widget(session_page):
         args = [session_page],  # Arguments to pass to the function
         use_container_width = True,  # Use the full width of the container
         type ='primary',  # Type of the button
+        key='convert_images_to_pdf',  # Unique key for the button
         # Disable the button if 'pdf_list' is empty or 'merged_pdf' is in the session state
         disabled = (session_page['image_list'] == [])|('output_pdf' in session_page)
     )

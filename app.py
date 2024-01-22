@@ -12,7 +12,7 @@ st.set_page_config(
 # Set the title of the page
 st.title(':blue[Free PDF Tools]')
 
-pdf_merge, image_to_pdf, pdf_to_image = st.tabs(['Merge PDFs', 'Image To PDF', 'PDF To Image'])
+pdf_merge, image_to_pdf = st.tabs(['Merge PDFs', 'Image To PDF'])
 
 with pdf_merge:
     if 'pdf_merger' not in st.session_state:

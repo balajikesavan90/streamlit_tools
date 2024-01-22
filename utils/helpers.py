@@ -2,7 +2,6 @@ import streamlit as st
 import PyPDF2
 from io import BytesIO
 import img2pdf
-from PIL import Image
 
 def merge_pdfs(session_page):
     """

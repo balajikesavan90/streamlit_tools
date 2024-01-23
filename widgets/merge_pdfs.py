@@ -5,7 +5,7 @@ from utils.helpers import merge_files, reset
 
 def render_merge_pdfs_widget(session_page):
 
-    st.header(':blue[Merge PDFs & Images into a Single PDF]')
+    st.header(':blue[Merge PDFs & images into a single PDF]')
 
     # Check if 'uploader_key' is in the session state, if not, add it
     if 'uploader_key' not in session_page:
